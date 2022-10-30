@@ -80,18 +80,12 @@ async def main():
     <marquee width="525" behavior="alternate"><h1 style="color:red;font-family:Arial">!--Please Upload Your Scenes--!</h1></marquee>
     <h3 style="font-family:Arial">We will try to predict which of these categories they belong's to:</h3><br>
     """
-
     original_paths = ['building_1.jpg', 'forest_1.jpg', 'glacier_1.jpg', 
                       'mountain_1.jpg', 'sea_1.jpg', 'street_1.jpg']
-
     full_original_paths = ['static/original/' + x for x in original_paths]
-
     display_names = ['Building', 'Forest', 'Glacier', 'Mountain', 'Sea', 'Street']
-
     column_labels = []
-    
     content = content + get_html_table(full_original_paths, display_names, column_labels)
-
     content = content + """
     <br/>
     <br/>
@@ -101,10 +95,8 @@ async def main():
     </form>
     </body>
     """
-    
+   
     return content
-
-
 head_html = """
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -117,7 +109,6 @@ def get_html_table(image_paths, names, column_labels):
     s = '<table align="center">'
     if column_labels:
         s += '<tr><th><h4 style="font-family:Arial">' + column_labels[0] + '</h4></th><th><h4 style="font-family:Arial">' + column_labels[1] + '</h4></th></tr>'
-    
     for name, image_path in zip(names, image_paths):
         s += '<tr><td><img height="80" src="/' + image_path + '" ></td>'
         s += '<td style="text-align:center">' + name + '</td></tr>'
